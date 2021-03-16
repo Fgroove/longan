@@ -20,7 +20,7 @@ title: Mista's Blog                          # the main title
 tagline: An AndroidAudio-focused BlogSite   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  ANdroid, Audio, AudioFlinger,
+  Android, Audio, AudioFlinger,
   AudioPolicy, AudioManger.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
@@ -80,7 +80,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: /avatar.jpg
+avatar: /assets/img/avatar.png
 
 # boolean type, the global switch for ToC in posts.
 toc: true
