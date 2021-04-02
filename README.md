@@ -10,11 +10,6 @@
 - [前提](#前提)
 - [安装](安装)
 - [使用](#使用)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [Support](#support)
-- [License](#license)
 
 ## 特性
 
