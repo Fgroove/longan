@@ -1,5 +1,5 @@
 ---
-title: Question list
+title: How to concatenate a string and an int?
 author: Mista
 date: 2021-04-06 23:32:00 +0800
 categories: [Question]
@@ -77,6 +77,4 @@ result = name + Poco::NumberFormatter().format(age);
 ## Reference
 
 [^Stack Overflow]: [How to concatenate a std::string and an int?](https://stackoverflow.com/questions/191757/how-to-concatenate-a-stdstring-and-an-int)
-
-[chirpy-homepage]: https://github.com/cotes2020/jekyll-theme-chirpy/
 
