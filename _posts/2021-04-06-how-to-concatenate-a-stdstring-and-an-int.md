@@ -76,5 +76,5 @@ result = name + Poco::NumberFormatter().format(age);
 
 ## Reference
 
-[^Stack Overflow]: [How to concatenate a std::string and an int?](https://stackoverflow.com/questions/191757/how-to-concatenate-a-stdstring-and-an-int)
+[How to concatenate a std::string and an int?](https://stackoverflow.com/questions/191757/how-to-concatenate-a-stdstring-and-an-int)
 
