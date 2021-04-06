@@ -13,12 +13,12 @@ order: 4
 
 Jeffrey
 
-:Don't Panic!
+* Don't Panic!
 
 Teacher
 
-:人无远虑，必有近忧！
+* 人无远虑，必有近忧！
 
 CC
 
-:凡事预则立！
+* 凡事预则立！
