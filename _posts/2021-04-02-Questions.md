@@ -28,3 +28,6 @@ pin: true
 
 ## Java
 
+### 1 public static final array 安全漏洞
+
+Effective Java中提到的潜在安全漏洞，`public static final array`，
