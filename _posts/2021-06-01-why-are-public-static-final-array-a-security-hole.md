@@ -22,7 +22,7 @@ Effective Java说：
 
 考虑下面的例子：
 
-```Java
+```java
 public class SafeSites {
     // a trusted class with permission to create network connections
     public static final String[] ALLOWED_URLS = new String[] {
