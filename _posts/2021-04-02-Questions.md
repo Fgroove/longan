@@ -26,6 +26,12 @@ pin: true
 * AudioDetect特性的函数应该都和Audiodetection有关联，可以参考
 * AudioDetection::mTrackInfo试一试，
 
+### 3 回调函数
+
+回调函数，因为名字没起好，经常让人摸不着头脑；回调函数作为参数传给caller，在caller函数执行完调用。
+
+可以理解为call at the back，或者call after function。
+
 ## Java
 
 ### 1 public static final array 安全漏洞
