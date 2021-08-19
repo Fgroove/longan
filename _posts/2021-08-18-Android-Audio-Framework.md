@@ -4,6 +4,7 @@ author: Mista
 date: 2021-08-20 00:32:00 +0800
 categories: [audio framework]
 tags: [audio framework]
+pin: true
 ---
 
 安卓音频框架，主要理清：
