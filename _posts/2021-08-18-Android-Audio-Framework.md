@@ -15,15 +15,15 @@ pin: true
 
 ## 音频播放过程
 
-### audiotrack
+### [audiotrack](https://fgroove.github.io/longan/posts/AudioTrack-set/)
 
-客户端AudioTrack::start
+客户端[AudioTrack::start](https://fgroove.github.io/longan/posts/AudioTrack-startstop/)
 
 服务端audioflinger、audiopolicymanager::startoutput
 
 hal/driver: audio_hw_primary:start_output_stream
 
-### 通路设备选择
+### [通路设备选择](https://fgroove.github.io/longan/posts/AudioTrack-selectDevice/)
 
 听筒：setMode，setPhoneState，异常守护
 
@@ -31,7 +31,7 @@ hal/driver: audio_hw_primary:start_output_stream
 
 蓝牙：startBluetoothSco，setBluetoothSco
 
-### 音量
+### [音量](https://fgroove.github.io/longan/posts/AudioTrack-Volume/)
 
 VolumeGroupState，Stream音量，Track音量
 
