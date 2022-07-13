@@ -2,8 +2,8 @@
 title: Why are public static final array a security hole?
 author: Mista
 date: 2021-06-01 00:32:00 +0800
-categories: [Question]
-tags: [static,final]
+categories: [Question, others]
+tags: [static final, array]
 ---
 
 Effective Java说：

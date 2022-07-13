@@ -2,8 +2,8 @@
 title: AudioTrack::set
 author: Mista
 date: 2021-11-03 00:32:00 +0800
-categories: [audio playback]
-tags: [audio framework]
+categories: [audio, framework]
+tags: [audio playback]
 ---
 
 AudioTrack::set，AudioTrack的初始化，主要是：

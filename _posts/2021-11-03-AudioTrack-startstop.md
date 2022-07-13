@@ -2,8 +2,8 @@
 title: AudioTrack::start/stop
 author: Mista
 date: 2021-11-03 21:32:00 +0800
-categories: [audio playback]
-tags: [audio framework]
+categories: [audio, framework]
+tags: [audio playback]
 ---
 
 AudioTrack::start/stop，开始/停止播放，主要是：

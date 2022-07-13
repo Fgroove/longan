@@ -2,8 +2,8 @@
 title: Android audio framework
 author: Mista
 date: 2021-08-20 00:32:00 +0800
-categories: [audio framework]
-tags: [audio framework]
+categories: [audio, framework]
+tags: [audio framework introduction]
 pin: true
 ---
 

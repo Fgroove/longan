@@ -2,7 +2,7 @@
 title: What is a callback function?
 author: Mista
 date: 2021-06-02 00:32:00 +0800
-categories: [Question]
+categories: [Question, others]
 tags: [callback]
 ---
 

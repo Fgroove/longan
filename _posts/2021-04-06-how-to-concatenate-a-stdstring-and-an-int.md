@@ -2,8 +2,8 @@
 title: How to concatenate a string and an int?
 author: Mista
 date: 2021-04-06 23:32:00 +0800
-categories: [Question]
-tags: [String]
+categories: [Question, others]
+tags: [String + int in C++]
 ---
 
 
