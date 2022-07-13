@@ -17,10 +17,10 @@ timezone: Asia/Shanghai
 # --------------------------
 title: Mista's Blog                          # the main title
 
-tagline: An AndroidAudio-focused BlogSite   # it will display as the sub-title
+tagline: recording and summing up   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Android, Audio, AudioFlinger,
+  Android, Audio framework, build,
   AudioPolicy, AudioManger.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
@@ -32,7 +32,7 @@ github:
   username: fgroove             # change to your github username
 
 twitter:
-  username: saitama            # change to your twitter username
+  username: @STRONGYASAI            # change to your twitter username
 
 social:
   name: CC                  # it will shows as the copyright owner in Footer
