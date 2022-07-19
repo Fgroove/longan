@@ -32,20 +32,20 @@ Android 构造系统演进历史大概：
 * Android 7.0 开始引入Soong，希望加速 Make；但由于改动太大，所以到目前为止 Soong 并没有完全取代 Make，直到 
 * Android 13.0 为止还是 Make 和 Soong 两者兼容的系统。但是 Soong 是主流，未来也会全面取代 Make。
 
-![img](https://github.com/Fgroove/longan/blob/master/assets/img/aosp_build_procedure.png)
+![img](https://raw.githubusercontent.com/Fgroove/longan/master/assets/img/aosp_build_procedure.png)
 
 Soong 引入后的编译流程如下：
 
-1. ==Soong 的自举（bootstrap）==，编译 Soong 的核心组件，从源码开始构建 Soong 子系统。
-2. Android.bp，Soong 框架下的模块会在目录下提供一个 Android.bp 文件。Soong 会扫描收集所有的 Android.bp ，通过 Soong 中的 Blueprint 子模块处理 bp 文件语法，生成 `out/soong/build.ninja` 文件。待确认...
-3. Android.mk，Makefile 框架下的模块目录下会有 Android.mk 文件，有 Kati 程序负责收集所有的 Android.mk，并生成 `out/build-<product>.ninja` 文件。待确认...
+1. **Soong 的自举（bootstrap）**，编译 Soong 的核心组件，从源码开始构建 Soong 子系统。
+2. Android.bp，Soong 框架下的模块会在目录下提供一个 Android.bp 文件。Soong 会扫描收集所有的 Android.bp ，通过 Soong 中的 **Blueprint** 子模块处理 bp 文件语法，生成 `out/soong/build.ninja` 文件。
+3. Android.mk，Makefile 框架下的模块目录下会有 Android.mk 文件，有 Kati 程序负责收集所有的 Android.mk，并生成 `out/build-<product>.ninja` 文件，高通平台一般是`out/build-qssi.ninja`。
 4. Soong 负责将两个 ninja 文件组合成 `out/combined-<product>.ninja` 文件，作为最终编译执行的输入文件，调用 gcc 等工具完成最终编译。
 
 ## 相关技术
 
 ### Ninja
 
-Ninja（果然是日语的 “忍者 にんじゃ”）是一个致力于速度的小型编译驱动 （类似于 Make）；它去除了 Make 编译过程的复杂的条件判断处理，只保留了对构建步骤的描述。
+Ninja（日语中的 “忍者 にんじゃ”）是一个致力于速度的小型编译驱动 （类似于 Make）；它去除了 Make 编译过程的复杂的条件判断处理，只保留了对构建步骤的描述。
 
 它具备两个主要特点：
 
