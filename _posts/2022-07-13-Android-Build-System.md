@@ -6,6 +6,8 @@ categories: [Android, build]
 tags: [android build system]
 ---
 
+[toc]
+
 最近，集成杜比音效用到了很多Android编译知识，记录一下
 
 1. Android编译系统，Android.bp、Soong以及Android.mk
@@ -38,7 +40,7 @@ Soong 引入后的编译流程如下：
 
 1. **Soong 的自举（bootstrap）**，编译 Soong 的核心组件，从源码开始构建 Soong 子系统。
 2. Android.bp，Soong 框架下的模块会在目录下提供一个 Android.bp 文件。Soong 会扫描收集所有的 Android.bp ，通过 Soong 中的 **Blueprint** 子模块处理 bp 文件语法，生成 `out/soong/build.ninja` 文件。
-3. Android.mk，Makefile 框架下的模块目录下会有 Android.mk 文件，有 Kati 程序负责收集所有的 Android.mk，并生成 `out/build-<product>.ninja` 文件，高通平台一般是`out/build-qssi.ninja`。
+3. Android.mk，Makefile 框架下的模块目录下会有 Android.mk 文件，有 **Kati** 程序负责收集所有的 Android.mk，并生成 `out/build-<product>.ninja` 文件，高通平台一般是`out/build-qssi.ninja`。
 4. Soong 负责将两个 ninja 文件组合成 `out/combined-<product>.ninja` 文件，作为最终编译执行的输入文件，调用 gcc 等工具完成最终编译。
 
 ## 相关技术
@@ -65,13 +67,13 @@ Soong 的源码在 AOSP 源码目录 `build/soong` 下；AOSP 源码关于 Soong
 
 > The Soong build system was introduced in Android 7.0 (Nougat) to replace Make. It leverages the Kati GNU Make clone tool and Ninja build system component to speed up builds of Android.
 
-和基于 make 需要写 Makefile（在 AOSP 里是 Android.mk）一样，基于 Soong 需要为每个模块编写 Android.bp 文件来描述组件中各个编译目标（以 module 为单位）之间的依赖关系和组成。之所以后缀名为 `.bp` 是因为 `Android.bp` 采用了一种叫做 ==Blueprint== 语法， 这种语法格式类似于 [Bazel BUILD files](https://gitee.com/link?target=https%3A%2F%2Fdocs.bazel.build%2Fversions%2Fmaster%2Fbe%2Foverview.html)。
+和基于 make 需要写 Makefile（在 AOSP 里是 Android.mk）一样，基于 Soong 需要为每个模块编写 Android.bp 文件来描述组件中各个编译目标（以 module 为单位）之间的依赖关系和组成。之所以后缀名为 `.bp` 是因为 `Android.bp` 采用了一种叫做 **Blueprint** 语法， 这种语法格式类似于 [Bazel BUILD files](https://gitee.com/link?target=https%3A%2F%2Fdocs.bazel.build%2Fversions%2Fmaster%2Fbe%2Foverview.html)。
 
-对 BP 语法的解析由一个独立的 Blueprint 模块完成，Blueprint 的源码在 AOSP 源码的 `build/blueprint` 目录下。该模块相对比较独立，可以单独编译、使用。==任何实际的应用系统都可以在 Blueprint 的基础上定制自己语法。而在 Android 系统上，这个实际的应用系统就是 Soong。 所以说 Soong 是 Android 强相关的，而 Blueprint 实际上相对独立一些==，开发者也可以基于 Blueprint 模块开发自己的应用系统。
+对 BP 语法的解析由一个独立的 Blueprint 模块完成，Blueprint 的源码在 AOSP 源码的 `build/blueprint` 目录下。该模块相对比较独立，可以单独编译、使用。**任何实际的应用系统都可以在 Blueprint 的基础上定制自己语法。而在 Android 系统上，这个实际的应用系统就是 Soong。 所以说 Soong 是 Android 强相关的，而 Blueprint 实际上相对独立一些**，开发者也可以基于 Blueprint 模块开发自己的应用系统。
 
 因为 Android 在 Blueprint 的基础上定制了自己的 Soong 系统。所以针对 AOSP，其自身定义 了一套 Android 私有的 BP 语法，可以参考 AOSP 官方文档 [“Android.bp file format”](https://gitee.com/link?target=https%3A%2F%2Fsource.android.google.cn%2Fsetup%2Fbuild%23androidbp_file_format) 了解详细内容。
 
-## Kati
+### Kati
 
 代码在 AOSP 源码的 `build/kati` 目录下。如果想对 Kati 有更多了解，可以阅读 AOSP 源 码下的 `build/kati/README.md` 和 `build/kati/INTERNALS.md` 文件。
 
@@ -89,4 +91,6 @@ Soong 的源码在 AOSP 源码目录 `build/soong` 下；AOSP 源码关于 Soong
 
 
 
-参考：[AOSP Build 背后涉及的相关知识汇总](https://gitee.com/aosp-riscv/working-group/blob/master/articles/20201230-android-build-sum.md)
+参考：
+
+[AOSP Build 背后涉及的相关知识汇总](https://gitee.com/aosp-riscv/working-group/blob/master/articles/20201230-android-build-sum.md)
