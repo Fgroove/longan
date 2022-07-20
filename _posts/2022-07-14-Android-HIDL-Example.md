@@ -33,3 +33,4 @@ HIDL，HAL Interface Definition Language，和AIDL类似，是用来描述硬件
 
 ## HIDL 开发实例
 
+... to be continued
