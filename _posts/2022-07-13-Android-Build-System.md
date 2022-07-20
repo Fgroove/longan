@@ -6,8 +6,6 @@ categories: [Android, build]
 tags: [android build system]
 ---
 
-[toc]
-
 最近，集成杜比音效用到了很多Android编译知识，记录一下
 
 1. Android编译系统，Android.bp、Soong以及Android.mk
