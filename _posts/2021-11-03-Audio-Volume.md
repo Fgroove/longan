@@ -8,6 +8,6 @@ tags: [audio volume]
 
 音量管理，主要是：
 
-1. 音量调节
-2. 绝对音量调节
+1. Stream 音量
+2. AudioTrack 音量
 
