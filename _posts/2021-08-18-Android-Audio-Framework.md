@@ -3,51 +3,36 @@ title: Android audio framework
 author: Mista
 date: 2021-08-20 00:32:00 +0800
 categories: [audio, framework]
-tags: [audio framework introduction]
+tags: [audio framework]
 pin: true
 ---
 
-安卓音频框架，主要理清：
+![](https://raw.githubusercontent.com/Fgroove/longan/master/assets/img/audio_framework/audio_framework.png)
 
-1. audiotrack播放（start、pause、stop）、通路（output）和设备（setOutputDevice）选择，音量和audiofocus使用
-2. 稳定性，audioserver crash及引起的anr、watchdog
-3. 杂音卡顿，性能、通路强转、音效等原因
+Android 音频服务框架的内容说多不多，说少也不少，网上也有各种的教程。我看过的比较系统性的描述就是林学森老师的《深入理解*Android* 内核设计思想》，里面分为 AudioTrack、AudioFlinger 和 AudioPolicyService 三部分来讲解 Audio 模块，但是随着 Android 的演变，现在已经不能涵盖遇到的所有场景，所以从自身实际了解出发，总结下这部分内容：
 
+* Audio data processing: 有点类似于 AudioTrack 及其扩展，音频数据流处理，主要包括音频播放录音框架，音量、音效和变声等分别在重采样、混音等阶段完成等。
+* Output & Device Routing: 相当于 AudioFlinger 和 AudioPolicyManager 部分，主要是设备/通路的选择流程、切设备音量设置流程、AudioFocus以及MediaSession机制。
+* 快稳省：音频导致的稳定性问题（native crash/SWT/ANR）、性能问题（原神用aaudio引起的杂音问题等）等。
 
+## Audio Data Processing
 
-## 音频播放过程
+- Audio Playback: 音频播放，AudioTrack::set/start/write，prepareTracks_l 和 threadLoop_l 等函数。
+- Audio Capture：录音，类似于播放机制，数据流向反过来。
+- Audio Effect：音效机制。
+- Magic Voice：变声，类似机制的还有系统内录、耳返等。
 
-### [audiotrack](https://fgroove.github.io/longan/posts/AudioTrack-set/)
+## Output & Device Routing
 
-客户端[AudioTrack::start](https://fgroove.github.io/longan/posts/AudioTrack-startstop/)
+- Output
+- Device Routing：setSpeakerphoneOn/setBluetoothScoOn，getDeviceRoleForStrategy/setForceUse，getDeviceForStrategyInt
+- Audio Volume
+- AudioFocus
+- MediaSession
 
-服务端audioflinger、audiopolicymanager::startoutput
+## Perf&Stability&Save
 
-hal/driver: audio_hw_primary:start_output_stream
-
-### [通路设备选择](https://fgroove.github.io/longan/posts/AudioTrack-selectDevice/)
-
-听筒：setMode，setPhoneState，异常守护
-
-免提：setSpeakerPhoneOn
-
-蓝牙：startBluetoothSco，setBluetoothSco
-
-### [音量](https://fgroove.github.io/longan/posts/AudioTrack-Volume/)
-
-VolumeGroupState，Stream音量，Track音量
-
-## 稳定性
-
-由于Google TimeCheck机制的引入，audioserver crash大部分都是这里引起的。
-
-* audioserver crash，会发送debuggerd signal给audiohal，一起打印tombstone方便分析；
-
-* audiohal crash，上层来不及打印tombstone，只有haldeath first打印。
-
-## 杂音卡顿
-
-由于性能原因引起声音卡顿、杂音，可以通过systrace信息确认，
-
-*  三方APP写数据不及时，音频服务得不到足够的数据，导致sleep写入补0数据，
-* audioserver向audiohal层写数据时被阻塞，也会引入杂音，体现在0x1531节点，
+- SWT/ANR/Native crash
+- Audio low latency
+- Systrace/Performance
+- Binder Performance
