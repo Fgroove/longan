@@ -36,3 +36,10 @@ Android 音频服务框架的内容说多不多，说少也不少，网上也有
 - Audio low latency
 - Systrace/Performance
 - Binder Performance
+
+## Tools
+
+* log 工具：notepad++，glogg
+* dumpsys audio/media.audio_flinger/media.audio_policy/media.audio_metrics
+* Adobe Audition/QCAT
+* Systrace/Debuggerd
