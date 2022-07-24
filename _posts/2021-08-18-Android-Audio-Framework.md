@@ -13,6 +13,8 @@ pin: true
 2. 稳定性，audioserver crash及引起的anr、watchdog
 3. 杂音卡顿，性能、通路强转、音效等原因
 
+
+
 ## 音频播放过程
 
 ### [audiotrack](https://fgroove.github.io/longan/posts/AudioTrack-set/)
