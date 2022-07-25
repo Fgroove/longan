@@ -132,8 +132,12 @@ engineConfig::ParsingResult EngineBase::loadAudioPolicyEngineConfig()
 
 以上代码片段加载后的音量曲线对应关系如下，
 
-![]()
+![](https://raw.githubusercontent.com/Fgroove/longan/master/assets/img/audio_framework/VolumeCurve.png)
 
 >adb shell dumpsys media.audio_policy，可以查看音量曲线参数，
 >
 >adb pull \<product>/etc/audio_policy_volumes.xml 和 default_volume_tables.xml，可以直接查看音量配置文件
+
+## 音量调节
+
+音量调节有两个入口，音量键（adjustSuggestedStreamVolume）和音量条（setStreamVolume）调节，其底层实现原理一样。
