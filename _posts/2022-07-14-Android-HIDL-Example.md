@@ -15,7 +15,7 @@ Android 8.0之后，`/dev/binder`拓展多出了两个域，即`/dev/hwbinder`�
 
 > 关于 ROM：国内的定制系统开发者，经常会陷入自己的产品究竟是应该称为 OS (ColorOS) 还是 UI (MIUI) 的争论，为了避免此类争论和表示谦虚，会自称为 ROM。应该就是 Android /system分区。
 
-## HAL
+## [HAL 硬件抽象层](https://source.android.com/docs/core/architecture/hal)
 
 HAL，Hardware Abstraction Layer，即硬件抽象层。
 
@@ -25,7 +25,7 @@ HAL，Hardware Abstraction Layer，即硬件抽象层。
 
 现在已经是 Android 13，但早在 Android 8 之后就弃用了 HAL，不过由于碎片化的原因，目前还有 IoT 等设备仍在使用传统的 HAL 模式。
 
-## HIDL
+## [HIDL](https://source.android.com/docs/core/architecture/hidl)
 
 HAL 是最初的硬件抽象方案，在 Android 8 之后废弃并被 HIDL 取代。
 
@@ -34,3 +34,13 @@ HIDL，HAL Interface Definition Language，和AIDL类似，是用来描述硬件
 ## HIDL 开发实例
 
 ... to be continued
+
+
+
+
+
+reference:
+
+[HAL 硬件抽象层](https://source.android.com/docs/core/architecture/hal)
+
+[HIDL](https://source.android.com/docs/core/architecture/hidl)
