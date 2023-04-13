@@ -26,9 +26,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      GEMS_PATH: vendor/bundle
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
