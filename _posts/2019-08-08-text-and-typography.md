@@ -10,50 +10,48 @@ image:
   src: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/devices-mockup.png
 ---
 
-This post is to show Markdown syntax rendering on [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork), you can also use it as an example of writing. Now, let's start looking at text and typography.
+这篇文章目的是展示  [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork) 支持的 Markdown 语法渲染，可以作为写作的模版，作为行文和排版的参考。
 
 
-## Titles
+## 标题
 ---
-# H1 - heading
+# 一级标题
 
-<h2 data-toc-skip>H2 - heading</h2>
+## 二级标题
 
-<h3 data-toc-skip>H3 - heading</h3>
+### 三级标题
 
-<h4>H4 - heading</h4>
----
-<br>
+#### 四级标题
 
-## Paragraph
+## 段落
 
-I wandered lonely as a cloud
+I wandered lonely as a cloud  // 我独自漫步，如同一朵云，
 
-That floats on high o'er vales and hills,
+That floats on high o'er vales and hills,  // 漂浮于山谷和山丘之上
 
-When all at once I saw a crowd,
+When all at once I saw a crowd,  // 当突然间我看到了一群，
 
-A host, of golden daffodils;
+A host, of golden daffodils;  // 一群金色的水仙花；
 
-Beside the lake, beneath the trees,
+Beside the lake, beneath the trees,  // 它们在湖畔，树下，
 
-Fluttering and dancing in the breeze.
+Fluttering and dancing in the breeze.  // 随风飘动，跳跃舞动。
 
-## Lists
+## 列表
 
-### Ordered list
+### 有序列表
 
 1. Firstly
 2. Secondly
 3. Thirdly
 
-### Unordered list
+### 无序列表
 
 - Chapter
 	- Setcion
       - Paragraph
 
-### Task list
+### 任务列表
 
 - [ ] TODO
 - [x] Completed
