@@ -49,19 +49,6 @@ jobs:
           bundler-cache: true
 
 
-      - name: Bundle Caching
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.GEMS_PATH }}
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Bundle Install
-        run: |
-          bundle config path ${{ env.GEMS_PATH }}
-          bundle install --jobs 4 --retry 3
-
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
