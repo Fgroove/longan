@@ -26,6 +26,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      GEMS_PATH: vendor/bundle
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -40,10 +43,22 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: actions/setup-ruby@v1
         with:
-          ruby-version: 3   # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
-          bundler-cache: true
+          ruby-version: 3
+
+      - name: Bundle Caching
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.GEMS_PATH }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Bundle Install
+        run: |
+          bundle config path ${{ env.GEMS_PATH }}
+          bundle install --jobs 4 --retry 3
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"

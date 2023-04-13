@@ -2,13 +2,14 @@
 .*
 !.github
 
-# bundler cache
+# jekyll cache
 _site
 vendor
-Gemfile.lock
 
 # rubygem
 *.gem
+# yard docs
+doc
 
 # npm dependencies
 node_modules
