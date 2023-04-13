@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-chirpy"
-  spec.version       = "3.2.2"
+  spec.version       = "5.3.2"
   spec.authors       = ["Cotes Chung"]
   spec.email         = ["cotes.chung@gmail.com"]
 
@@ -11,19 +11,21 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f|
-    f.match(%r!^((assets\/(css|img|js\/[a-z])|_(includes|layouts|sass|config|data|tabs|plugins))|README|LICENSE|index|feed|app|sw|404|robots)!i)
+    f.match(%r!^((_(includes|layouts|sass|data)|assets)\/|README|LICENSE)!i)
   }
 
   spec.metadata = {
     "bug_tracker_uri"   => "https://github.com/cotes2020/jekyll-theme-chirpy/issues",
-    "documentation_uri" => "https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/README.md",
+    "documentation_uri" => "https://github.com/cotes2020/jekyll-theme-chirpy/#readme",
     "homepage_uri"      => "https://cotes2020.github.io/chirpy-demo",
     "source_code_uri"   => "https://github.com/cotes2020/jekyll-theme-chirpy",
     "wiki_uri"          => "https://github.com/cotes2020/jekyll-theme-chirpy/wiki",
     "plugin_type"       => "theme"
   }
 
-  spec.add_runtime_dependency "jekyll", "~> 4.1"
+  spec.required_ruby_version = ">= 2.6"
+
+  spec.add_runtime_dependency "jekyll", "~> 4.3"
   spec.add_runtime_dependency "jekyll-paginate", "~> 1.1"
   spec.add_runtime_dependency "jekyll-redirect-from", "~> 0.16"
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.7"
